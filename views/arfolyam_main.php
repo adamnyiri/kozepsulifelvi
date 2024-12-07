@@ -2,14 +2,27 @@
 $ertekek = $viewData;
 $tomb=array();
 $j=0;
+if($ertekek[3]['attributes']['CURR'] == '') {
+    for($i=1; $i+4<count($ertekek); $i=$i+4){
+        if($ertekek[$i]['attributes']['DATE'] != '' || $ertekek[$i+1]['value'] = '')
+        {
+            $tomb[$j]['date']=$ertekek[$i]['attributes']['DATE'];    
+            $tomb[$j]['deviza1']=$ertekek[$i+1]['value'];      
+            $tomb[$j]['deviza2']=$ertekek[$i+1]['value'];    
+            $j++;
+        }
+    }
+    $ertekek[3]['attributes']['CURR'] = $ertekek[2]['attributes']['CURR'];
+} else {
 for($i=1; $i+4<count($ertekek); $i=$i+4){
     $tomb[$j]['date']=$ertekek[$i]['attributes']['DATE'];    
     $tomb[$j]['deviza1']=$ertekek[$i+1]['value'];      
     $tomb[$j]['deviza2']=$ertekek[$i+2]['value'];    
     $j++;
 }
+}
 $jsonTable=json_encode($tomb);?>
-<html>
+
 <head>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -47,19 +60,28 @@ console.log(dataSet);
 </style>
 </head>  
 
-<body>
-    <table>
-        <tr>
-            <th>Dátum</th>
-            <th>Deviza</th>
-            <th>Egység</th>
-            <th>Árfolyam (HUF)</th>
-            <th>Deviza</th>
-            <th>Egység</th>
-            <th>Árfolyam (HUF)</th>
-        </tr>
-        <pre>
-        <?php                
+<section class="about_section layout_padding">
+    <div class="container">
+      <h2 class="main-heading ">
+      Lekérdezett árfolyamok!
+      </h2>
+      <div class="page-wrapper">
+    <div id="line_chart" style="width: 100%; height: 500px"></div>
+    </div>    
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Dátum</th>
+      <th scope="col">Deviza</th>
+      <th scope="col">Egység</th>
+      <th scope="col">Árfolyam (HUF)</th>
+      <th scope="col">Deviza</th>
+      <th scope="col">Egység</th>
+      <th scope="col">Árfolyam (HUF)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php                
         for($i=1; $i+4<count($ertekek); $i=$i+4){     ?>           
             <tr>
                 <td><?php echo ($ertekek[$i]['attributes']['DATE']);?></td>
@@ -73,25 +95,13 @@ console.log(dataSet);
         <?php
         }                     
         ?>
-        </pre>
-    </table>    
-    <div class="page-wrapper">
-    <br />
-   
-    [['Dátum', 'Érték1', 'Érték2'],
-    <?php for ($i=0;$i<count($tomb)-1;$i++){?>
-    ['<?php echo $tomb[$i]['date']?>', '<?php echo $tomb[$i]['deviza1']?>','<?php echo $tomb[$i]['deviza2']?>'],
-    <?php }?>
-    ['<?php echo $tomb[count($tomb)-1]['date']?>', '<?php echo $tomb[count($tomb)-1]['deviza1']?>','<?php echo $tomb[count($tomb)-1]['deviza2']?>']]
-    <div id="line_chart" style="width: 100%; height: 500px"></div>
-    </div>    
+  </tbody>
+</table>
 
-</body>   
-</html>     
+    </div>
+  </section>
+</table>
 
 
-
-
-
-
+    
 

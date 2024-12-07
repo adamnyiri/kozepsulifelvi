@@ -1,36 +1,69 @@
-<h2>Árfolyamok lekérdezése:</h2> 
-
 <?php $devizak=$viewData;
 $db=count($devizak)-2; 
-?><br>
-<p> Lekérdezhető időszak:
-<?php
 $date1=$devizak[0];
 $date2=$devizak[1];
-echo $date1." - ".$date2;
-?><br><br></p>
+?>
+  <!-- contact section -->
 
- 
-<form action="<?= SITE_ROOT ?>arfolyam" method="post">
-    <fieldset>
-        <br>                 
-        <label for="d1">1. árfolyam:</label><select name="d1" id="d1">
-        <?php for ($i=3;$i<$db-1;$i++){?>
-            <option value="<?php echo $devizak[$i]?>"> <?php echo $devizak[$i]?> </option>
-        <?php }?>
-        </select>
-        <br><br>
-        <label for="d2">2. árfolyam: </label><select name="d2" id="d2">
-        <?php for ($i=3;$i<$db-1;$i++){?>
-            <option value="<?php echo $devizak[$i]?>"> <?php echo $devizak[$i]?> </option>
-        <?php }?>
-        </select>
-        <br>
-        <label for="datum1">Kezdő dátum</label><input type="date" name="datum1" id="datum1"  required><br>
-        <label for="datum2">Befejező dátum</label><input type="date" name="datum2" id="datum2"  required><br>    
-        <input type="submit" value="Lekérdező">
-    </fieldset>
-</form>
+  <section class="contact_section layout_padding">
+    <div class="container">
+
+      <h2 class="main-heading">
+        Árfolyam lekérdezése
+
+      </h2>
+      <div class="">
+        <div class="contact_section-container">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="contact-form">
+                <form action="<?= SITE_ROOT ?>arfolyam" method="post">
+                  <div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">1. árfolyam:</label>
+                    </div>
+                  <select class="custom-select" id="inputGroupSelect01" name="d1">
+                        <?php for ($i=3;$i<$db-1;$i++){?>
+                            <option value="<?php echo $devizak[$i]?>"> <?php echo $devizak[$i]?> </option>
+                        <?php }?>
+        </select></div>
+                  </div>
+                  <div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">2. árfolyam:</label>
+                    </div>
+                  <select class="custom-select" id="inputGroupSelect01" name="d2">
+                        <?php for ($i=3;$i<$db-1;$i++){?>
+                            <option value="<?php echo $devizak[$i]?>"> <?php echo $devizak[$i]?> </option>
+                        <?php }?>
+        </select></div>
+                  </div>
+                  <div>
+                  <label for="datum1">Kezdő dátum</label><input type="date" name="datum1" id="datum1"  required>
+                  </div>
+                  <div>
+                  <label for="datum2">Befejező dátum</label><input type="date" name="datum2" id="datum2"  required>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn_on-hover">
+                      Lekérdezés
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- end contact section -->
+
 
 
 
