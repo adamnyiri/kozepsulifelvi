@@ -7,7 +7,7 @@ class Velemeny_Model
         $retData['eredmeny'] = "";
         $login=$_SESSION['login'];
         $ido=date("Y.m.d H:i:s");
-        echo $login;
+        
 		try {		                    
             $connection = Database::getConnection();    
             $sql = "SELECT * from velemenyek order by velemenyId desc";

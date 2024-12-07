@@ -7,8 +7,7 @@ class Arfolyam_Model
 	{		
         try {            
             $kliens = new SoapClient("http://www.mnb.hu/arfolyamok.asmx?WSDL");
-            echo "<br>Aktuális deviza árfolyamok<br>";
-            echo ($datum1.", ".$datum2);     
+               
             $response_stdclass = $kliens->GetExchangeRates(array('startDate'=>$datum1,'endDate'=>$datum2,'currencyNames'=>$d1.",".$d2));
             $xml = $response_stdclass->GetExchangeRatesResult;        
             $parser=xml_parser_create();        
