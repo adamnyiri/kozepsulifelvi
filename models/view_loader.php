@@ -14,6 +14,7 @@ class View_Loader
         {
             $this->render = $file;
             $this->selectedItems = explode("_", $viewName);
+            $this->selected = $viewName;
         }        
         $file = SERVER_ROOT . 'css/' . strtolower($viewName) . '.css';
         if (file_exists($file))
@@ -32,6 +33,7 @@ class View_Loader
         $this->data['render'] = $this->render;
         $this->data['selectedItems'] = $this->selectedItems;
         $this->data['style'] = $this->style;
+        $this->data['selected'] = $this->selected;
         $viewData = $this->data;
         include(SERVER_ROOT . 'views/page_main.php');
     }

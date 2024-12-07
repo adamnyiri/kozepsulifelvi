@@ -1,18 +1,23 @@
-<?php 
+
+
+<section class="about_section layout_padding">
+    <div class="container">
+      <h2 class="main-heading ">
+      Pontszámok!
+      </h2>
+      
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Jelentkező neve</th>
+      <th scope="col">Képzés neve</th>
+      <th scope="col">Sorrend</th>
+      <th scope="col">Szerzett pontszám</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php 
 $tomb=$viewData['lista'];
-?>
-
-<h2> Jelentkezések</h2>
-<table>
-<tr>
-    <th>Jelentkező neve</th>
-    <th>Képzés neve</th>
-    <th>Sorrend</th>					
-    <th>Szerzett pontszám</th>																			
-</tr>
-		
-<?php 
-
 for($i=0;$i<count($tomb);$i++){   ?> 
     
 <tr>
@@ -22,4 +27,8 @@ for($i=0;$i<count($tomb);$i++){   ?>
     <td><?php echo($tomb[$i]['szerzett'])?></td>										
 </tr>               
 <?php } ?>
+  </tbody>
+</table>
+    </div>
+  </section>
 </table>
