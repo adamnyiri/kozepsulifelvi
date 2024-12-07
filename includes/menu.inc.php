@@ -22,7 +22,7 @@ Class Menu {
             if($menuitem[1] == "")
             { $menu.= "
                 <li class='nav-item active'>
-                  <a class='nav-link' href='".SITE_ROOT."".$menuindex."'> ".$menuitem[0]." </a>
+                  <a class='nav-link' href='".SITE_ROOT."".$menuindex."' style='text-shadow: 0 0 3px white;'> ".$menuitem[0]." </a>
                 </li>"; }
             else if($menuitem[1] == $sItems[0])
             { $submenu .= "<li><a href='".SITE_ROOT."".$sItems[0]."/".$menuindex."' ".($menuindex==$sItems[1]? "class='selected'":"").">".$menuitem[0]."</a></li>"; }

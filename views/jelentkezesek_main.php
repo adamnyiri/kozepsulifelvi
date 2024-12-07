@@ -5,7 +5,16 @@
       <h2 class="main-heading ">
       Pontszámok!
       </h2>
-      
+      <div class="d-flex justify-content-center mt-5">
+        <a href="pdf/pdf.php" class="call_to-btn  ">
+
+          <span>
+            Pdf Generálása
+          </span>
+          <img src="images/right-arrow.png" alt="">
+        </a>
+      </div>
+      <br>
 <table class="table">
   <thead class="thead-light">
     <tr>
